@@ -1,4 +1,3 @@
-# Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
 on:
@@ -29,7 +28,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Optional build step example (uncomment and adjust if you need a build)
+      # Example build (uncomment/adjust if required)
       # - name: Install dependencies
       #   run: npm ci
       # - name: Build site
@@ -37,13 +36,13 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: gh-pages
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Prefer pointing to build output (e.g., ./public or ./dist).
-          # If your site is already in repo root and no build is needed, '.' is acceptable.
-          path: '.'
+          path: './public' # change to your build output or '.' if appropriate
 
       - name: Deploy to GitHub Pages
         id: deployment
